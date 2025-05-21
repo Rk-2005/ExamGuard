@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String 
+  Role String
+  name String
+  createdAt DateTime  @default(now())
+  tests     Test[] 
+  attempts  TestAttempt[]
+}
+
+model Test{
+  id Int @id @default(autoincrement())
+  code String @unique
+  title String
+  description String
+  creatorId  Int
+  creator  User  @relation(fields:[creatorId] , references: [id])
+  CreatedAt DateTime @default(now()) 
+  questions Question[]
+  attempts    TestAttempt[]
+}
+
+model Question{
+  id Int @id @default(autoincrement())
+  testId Int 
+  test      Test     @relation(fields: [testId], references: [id])
+  text      String
+  options   String[]  // ["A", "B", "C", "D"]
+  answer    String
+  answers    Answer[]
+}
+
+model TestAttempt {
+  id         Int           @id @default(autoincrement())
+  testId     Int
+  userId     Int
+  test       Test          @relation(fields: [testId], references: [id])
+  user       User          @relation(fields: [userId], references: [id])
+  startedAt  DateTime      @default(now())
+  submittedAt DateTime?
+  answers    Answer[]
+  violations TabViolation[]
+}
+
+model Answer {
+  id         Int         @id @default(autoincrement())   // Unique ID of the answer
+  attemptId  Int                                          // FK to TestAttempt
+  questionId Int                                          // FK to Question
+  selected   String                                       // What the student selected (e.g., "A", "C")
+  question   Question   @relation(fields: [questionId], references: [id])
+  attempt    TestAttempt @relation(fields: [attemptId], references: [id])
+}
+
+
+model TabViolation {
+  id         Int       @id @default(autoincrement())
+  attemptId  Int
+  timestamp  DateTime  @default(now())
+  reason     String    // e.g. "tab switch", "blur"
+  attempt    TestAttempt @relation(fields: [attemptId], references: [id])
+}
