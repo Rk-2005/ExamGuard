@@ -151,6 +151,7 @@ exports.Prisma.TestAttemptScalarFieldEnum = {
   testId: 'testId',
   userId: 'userId',
   startedAt: 'startedAt',
+  Score: 'Score',
   submittedAt: 'submittedAt'
 };
 

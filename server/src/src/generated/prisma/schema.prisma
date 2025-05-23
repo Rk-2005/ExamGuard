@@ -54,6 +54,7 @@ model TestAttempt {
   test        Test           @relation(fields: [testId], references: [id])
   user        User           @relation(fields: [userId], references: [id])
   startedAt   DateTime       @default(now())
+  Score       Int?
   submittedAt DateTime?
   answers     Answer[]
   violations  TabViolation[]

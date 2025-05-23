@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "Ronak"; // fallback in case env is
 
 export const verify = async (req: Request, res: any, next: NextFunction) => {
   const authHeader = req.headers.authorization;
- 
+  
   if (!authHeader) {
     return res.status(401).json({ error: "Authorization header missing" });
   }
@@ -19,10 +19,10 @@ export const verify = async (req: Request, res: any, next: NextFunction) => {
   
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET) as {id:number};
     // You can attach the decoded info to req object if needed:
     
-    res.user = decoded;
+    req.id=decoded.id;
     next(); // Move to the next middleware or route handler
   } catch (err) {
     return res.status(401).json({ error: "Invalid token" });

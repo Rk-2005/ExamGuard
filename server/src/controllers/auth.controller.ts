@@ -51,7 +51,7 @@ export const login=async (req:Request,res:any)=>{
         msg:"User doesnt exits"
       }) 
     }
-    
+     
      const pw= await bcrypt.compare(password,user.password);
      if(!pw){
       return res.status(400).json({ error: 'Invalid credentials' });

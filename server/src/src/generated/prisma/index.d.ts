@@ -4924,12 +4924,14 @@ export namespace Prisma {
     id: number | null
     testId: number | null
     userId: number | null
+    Score: number | null
   }
 
   export type TestAttemptSumAggregateOutputType = {
     id: number | null
     testId: number | null
     userId: number | null
+    Score: number | null
   }
 
   export type TestAttemptMinAggregateOutputType = {
@@ -4937,6 +4939,7 @@ export namespace Prisma {
     testId: number | null
     userId: number | null
     startedAt: Date | null
+    Score: number | null
     submittedAt: Date | null
   }
 
@@ -4945,6 +4948,7 @@ export namespace Prisma {
     testId: number | null
     userId: number | null
     startedAt: Date | null
+    Score: number | null
     submittedAt: Date | null
   }
 
@@ -4953,6 +4957,7 @@ export namespace Prisma {
     testId: number
     userId: number
     startedAt: number
+    Score: number
     submittedAt: number
     _all: number
   }
@@ -4962,12 +4967,14 @@ export namespace Prisma {
     id?: true
     testId?: true
     userId?: true
+    Score?: true
   }
 
   export type TestAttemptSumAggregateInputType = {
     id?: true
     testId?: true
     userId?: true
+    Score?: true
   }
 
   export type TestAttemptMinAggregateInputType = {
@@ -4975,6 +4982,7 @@ export namespace Prisma {
     testId?: true
     userId?: true
     startedAt?: true
+    Score?: true
     submittedAt?: true
   }
 
@@ -4983,6 +4991,7 @@ export namespace Prisma {
     testId?: true
     userId?: true
     startedAt?: true
+    Score?: true
     submittedAt?: true
   }
 
@@ -4991,6 +5000,7 @@ export namespace Prisma {
     testId?: true
     userId?: true
     startedAt?: true
+    Score?: true
     submittedAt?: true
     _all?: true
   }
@@ -5086,6 +5096,7 @@ export namespace Prisma {
     testId: number
     userId: number
     startedAt: Date
+    Score: number | null
     submittedAt: Date | null
     _count: TestAttemptCountAggregateOutputType | null
     _avg: TestAttemptAvgAggregateOutputType | null
@@ -5113,6 +5124,7 @@ export namespace Prisma {
     testId?: boolean
     userId?: boolean
     startedAt?: boolean
+    Score?: boolean
     submittedAt?: boolean
     test?: boolean | TestDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5126,6 +5138,7 @@ export namespace Prisma {
     testId?: boolean
     userId?: boolean
     startedAt?: boolean
+    Score?: boolean
     submittedAt?: boolean
     test?: boolean | TestDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5136,6 +5149,7 @@ export namespace Prisma {
     testId?: boolean
     userId?: boolean
     startedAt?: boolean
+    Score?: boolean
     submittedAt?: boolean
     test?: boolean | TestDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5146,10 +5160,11 @@ export namespace Prisma {
     testId?: boolean
     userId?: boolean
     startedAt?: boolean
+    Score?: boolean
     submittedAt?: boolean
   }
 
-  export type TestAttemptOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "testId" | "userId" | "startedAt" | "submittedAt", ExtArgs["result"]["testAttempt"]>
+  export type TestAttemptOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "testId" | "userId" | "startedAt" | "Score" | "submittedAt", ExtArgs["result"]["testAttempt"]>
   export type TestAttemptInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     test?: boolean | TestDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5179,6 +5194,7 @@ export namespace Prisma {
       testId: number
       userId: number
       startedAt: Date
+      Score: number | null
       submittedAt: Date | null
     }, ExtArgs["result"]["testAttempt"]>
     composites: {}
@@ -5611,6 +5627,7 @@ export namespace Prisma {
     readonly testId: FieldRef<"TestAttempt", 'Int'>
     readonly userId: FieldRef<"TestAttempt", 'Int'>
     readonly startedAt: FieldRef<"TestAttempt", 'DateTime'>
+    readonly Score: FieldRef<"TestAttempt", 'Int'>
     readonly submittedAt: FieldRef<"TestAttempt", 'DateTime'>
   }
     
@@ -8306,6 +8323,7 @@ export namespace Prisma {
     testId: 'testId',
     userId: 'userId',
     startedAt: 'startedAt',
+    Score: 'Score',
     submittedAt: 'submittedAt'
   };
 
@@ -8621,6 +8639,7 @@ export namespace Prisma {
     testId?: IntFilter<"TestAttempt"> | number
     userId?: IntFilter<"TestAttempt"> | number
     startedAt?: DateTimeFilter<"TestAttempt"> | Date | string
+    Score?: IntNullableFilter<"TestAttempt"> | number | null
     submittedAt?: DateTimeNullableFilter<"TestAttempt"> | Date | string | null
     test?: XOR<TestScalarRelationFilter, TestWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -8633,6 +8652,7 @@ export namespace Prisma {
     testId?: SortOrder
     userId?: SortOrder
     startedAt?: SortOrder
+    Score?: SortOrderInput | SortOrder
     submittedAt?: SortOrderInput | SortOrder
     test?: TestOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
@@ -8648,6 +8668,7 @@ export namespace Prisma {
     testId?: IntFilter<"TestAttempt"> | number
     userId?: IntFilter<"TestAttempt"> | number
     startedAt?: DateTimeFilter<"TestAttempt"> | Date | string
+    Score?: IntNullableFilter<"TestAttempt"> | number | null
     submittedAt?: DateTimeNullableFilter<"TestAttempt"> | Date | string | null
     test?: XOR<TestScalarRelationFilter, TestWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -8660,6 +8681,7 @@ export namespace Prisma {
     testId?: SortOrder
     userId?: SortOrder
     startedAt?: SortOrder
+    Score?: SortOrderInput | SortOrder
     submittedAt?: SortOrderInput | SortOrder
     _count?: TestAttemptCountOrderByAggregateInput
     _avg?: TestAttemptAvgOrderByAggregateInput
@@ -8676,6 +8698,7 @@ export namespace Prisma {
     testId?: IntWithAggregatesFilter<"TestAttempt"> | number
     userId?: IntWithAggregatesFilter<"TestAttempt"> | number
     startedAt?: DateTimeWithAggregatesFilter<"TestAttempt"> | Date | string
+    Score?: IntNullableWithAggregatesFilter<"TestAttempt"> | number | null
     submittedAt?: DateTimeNullableWithAggregatesFilter<"TestAttempt"> | Date | string | null
   }
 
@@ -8979,6 +9002,7 @@ export namespace Prisma {
 
   export type TestAttemptCreateInput = {
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     test: TestCreateNestedOneWithoutAttemptsInput
     user: UserCreateNestedOneWithoutAttemptsInput
@@ -8991,6 +9015,7 @@ export namespace Prisma {
     testId: number
     userId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     answers?: AnswerUncheckedCreateNestedManyWithoutAttemptInput
     violations?: TabViolationUncheckedCreateNestedManyWithoutAttemptInput
@@ -8998,6 +9023,7 @@ export namespace Prisma {
 
   export type TestAttemptUpdateInput = {
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     test?: TestUpdateOneRequiredWithoutAttemptsNestedInput
     user?: UserUpdateOneRequiredWithoutAttemptsNestedInput
@@ -9010,6 +9036,7 @@ export namespace Prisma {
     testId?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     answers?: AnswerUncheckedUpdateManyWithoutAttemptNestedInput
     violations?: TabViolationUncheckedUpdateManyWithoutAttemptNestedInput
@@ -9020,11 +9047,13 @@ export namespace Prisma {
     testId: number
     userId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
   }
 
   export type TestAttemptUpdateManyMutationInput = {
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -9033,6 +9062,7 @@ export namespace Prisma {
     testId?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -9372,6 +9402,17 @@ export namespace Prisma {
     testId?: SortOrder
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -9403,6 +9444,7 @@ export namespace Prisma {
     testId?: SortOrder
     userId?: SortOrder
     startedAt?: SortOrder
+    Score?: SortOrder
     submittedAt?: SortOrder
   }
 
@@ -9410,6 +9452,7 @@ export namespace Prisma {
     id?: SortOrder
     testId?: SortOrder
     userId?: SortOrder
+    Score?: SortOrder
   }
 
   export type TestAttemptMaxOrderByAggregateInput = {
@@ -9417,6 +9460,7 @@ export namespace Prisma {
     testId?: SortOrder
     userId?: SortOrder
     startedAt?: SortOrder
+    Score?: SortOrder
     submittedAt?: SortOrder
   }
 
@@ -9425,6 +9469,7 @@ export namespace Prisma {
     testId?: SortOrder
     userId?: SortOrder
     startedAt?: SortOrder
+    Score?: SortOrder
     submittedAt?: SortOrder
   }
 
@@ -9432,6 +9477,23 @@ export namespace Prisma {
     id?: SortOrder
     testId?: SortOrder
     userId?: SortOrder
+    Score?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9825,6 +9887,14 @@ export namespace Prisma {
     connect?: TabViolationWhereUniqueInput | TabViolationWhereUniqueInput[]
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
@@ -10037,6 +10107,17 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -10046,6 +10127,33 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10060,17 +10168,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type TestCreateWithoutCreatorInput = {
@@ -10104,6 +10201,7 @@ export namespace Prisma {
 
   export type TestAttemptCreateWithoutUserInput = {
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     test: TestCreateNestedOneWithoutAttemptsInput
     answers?: AnswerCreateNestedManyWithoutAttemptInput
@@ -10114,6 +10212,7 @@ export namespace Prisma {
     id?: number
     testId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     answers?: AnswerUncheckedCreateNestedManyWithoutAttemptInput
     violations?: TabViolationUncheckedCreateNestedManyWithoutAttemptInput
@@ -10181,6 +10280,7 @@ export namespace Prisma {
     testId?: IntFilter<"TestAttempt"> | number
     userId?: IntFilter<"TestAttempt"> | number
     startedAt?: DateTimeFilter<"TestAttempt"> | Date | string
+    Score?: IntNullableFilter<"TestAttempt"> | number | null
     submittedAt?: DateTimeNullableFilter<"TestAttempt"> | Date | string | null
   }
 
@@ -10235,6 +10335,7 @@ export namespace Prisma {
 
   export type TestAttemptCreateWithoutTestInput = {
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     user: UserCreateNestedOneWithoutAttemptsInput
     answers?: AnswerCreateNestedManyWithoutAttemptInput
@@ -10245,6 +10346,7 @@ export namespace Prisma {
     id?: number
     userId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     answers?: AnswerUncheckedCreateNestedManyWithoutAttemptInput
     violations?: TabViolationUncheckedCreateNestedManyWithoutAttemptInput
@@ -10648,6 +10750,7 @@ export namespace Prisma {
 
   export type TestAttemptCreateWithoutAnswersInput = {
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     test: TestCreateNestedOneWithoutAttemptsInput
     user: UserCreateNestedOneWithoutAttemptsInput
@@ -10659,6 +10762,7 @@ export namespace Prisma {
     testId: number
     userId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     violations?: TabViolationUncheckedCreateNestedManyWithoutAttemptInput
   }
@@ -10707,6 +10811,7 @@ export namespace Prisma {
 
   export type TestAttemptUpdateWithoutAnswersInput = {
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     test?: TestUpdateOneRequiredWithoutAttemptsNestedInput
     user?: UserUpdateOneRequiredWithoutAttemptsNestedInput
@@ -10718,12 +10823,14 @@ export namespace Prisma {
     testId?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     violations?: TabViolationUncheckedUpdateManyWithoutAttemptNestedInput
   }
 
   export type TestAttemptCreateWithoutViolationsInput = {
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     test: TestCreateNestedOneWithoutAttemptsInput
     user: UserCreateNestedOneWithoutAttemptsInput
@@ -10735,6 +10842,7 @@ export namespace Prisma {
     testId: number
     userId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
     answers?: AnswerUncheckedCreateNestedManyWithoutAttemptInput
   }
@@ -10757,6 +10865,7 @@ export namespace Prisma {
 
   export type TestAttemptUpdateWithoutViolationsInput = {
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     test?: TestUpdateOneRequiredWithoutAttemptsNestedInput
     user?: UserUpdateOneRequiredWithoutAttemptsNestedInput
@@ -10768,6 +10877,7 @@ export namespace Prisma {
     testId?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     answers?: AnswerUncheckedUpdateManyWithoutAttemptNestedInput
   }
@@ -10784,6 +10894,7 @@ export namespace Prisma {
     id?: number
     testId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
   }
 
@@ -10816,6 +10927,7 @@ export namespace Prisma {
 
   export type TestAttemptUpdateWithoutUserInput = {
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     test?: TestUpdateOneRequiredWithoutAttemptsNestedInput
     answers?: AnswerUpdateManyWithoutAttemptNestedInput
@@ -10826,6 +10938,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     testId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     answers?: AnswerUncheckedUpdateManyWithoutAttemptNestedInput
     violations?: TabViolationUncheckedUpdateManyWithoutAttemptNestedInput
@@ -10835,6 +10948,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     testId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -10849,6 +10963,7 @@ export namespace Prisma {
     id?: number
     userId: number
     startedAt?: Date | string
+    Score?: number | null
     submittedAt?: Date | string | null
   }
 
@@ -10876,6 +10991,7 @@ export namespace Prisma {
 
   export type TestAttemptUpdateWithoutTestInput = {
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutAttemptsNestedInput
     answers?: AnswerUpdateManyWithoutAttemptNestedInput
@@ -10886,6 +11002,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     answers?: AnswerUncheckedUpdateManyWithoutAttemptNestedInput
     violations?: TabViolationUncheckedUpdateManyWithoutAttemptNestedInput
@@ -10895,6 +11012,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Score?: NullableIntFieldUpdateOperationsInput | number | null
     submittedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
