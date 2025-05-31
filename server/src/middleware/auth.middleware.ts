@@ -23,6 +23,7 @@ export const verify = async (req: Request, res: any, next: NextFunction) => {
     // You can attach the decoded info to req object if needed:
     
     req.id=decoded.id;
+  
     next(); // Move to the next middleware or route handler
   } catch (err) {
     return res.status(401).json({ error: "Invalid token" });

@@ -134,8 +134,10 @@ exports.Prisma.TestScalarFieldEnum = {
   code: 'code',
   title: 'title',
   description: 'description',
+  duration: 'duration',
   creatorId: 'creatorId',
-  CreatedAt: 'CreatedAt'
+  CreatedAt: 'CreatedAt',
+  isActive: 'isActive'
 };
 
 exports.Prisma.QuestionScalarFieldEnum = {

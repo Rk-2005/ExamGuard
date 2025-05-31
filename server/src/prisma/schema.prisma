@@ -30,16 +30,18 @@ model Test{
   code String @unique
   title String
   description String
+  duration Int
   creatorId  Int
   creator  User  @relation(fields:[creatorId] , references: [id])
   CreatedAt DateTime @default(now()) 
   questions Question[]
+  isActive Boolean @default(false)
   attempts    TestAttempt[]
 }
 
 model Question{
   id Int @id @default(autoincrement())
-  testId Int 
+  testId    Int 
   test      Test     @relation(fields: [testId], references: [id])
   text      String
   options   String[]  // ["A", "B", "C", "D"]
@@ -47,7 +49,7 @@ model Question{
   answers    Answer[]
 }
 
-model TestAttempt {
+model   TestAttempt {
   id         Int           @id @default(autoincrement())
   testId     Int
   userId     Int

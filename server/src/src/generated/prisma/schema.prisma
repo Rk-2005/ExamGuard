@@ -30,10 +30,12 @@ model Test {
   code        String        @unique
   title       String
   description String
+  duration    Int
   creatorId   Int
   creator     User          @relation(fields: [creatorId], references: [id])
   CreatedAt   DateTime      @default(now())
   questions   Question[]
+  isActive    Boolean       @default(false)
   attempts    TestAttempt[]
 }
 
@@ -55,7 +57,7 @@ model TestAttempt {
   user        User           @relation(fields: [userId], references: [id])
   startedAt   DateTime       @default(now())
   Score       Int?
-  submittedAt DateTime?
+  submittedAt DateTime       @default(now())
   answers     Answer[]
   violations  TabViolation[]
 }
