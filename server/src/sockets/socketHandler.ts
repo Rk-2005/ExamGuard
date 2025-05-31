@@ -144,7 +144,7 @@ export const socketHandler = (socket: Socket, io: Server) => {
 
       await prisma.test.update({
         where: { id: test.id },
-        data: { isActive: true },
+        data: { isActive: true } ,
       });
 
       io.to(`test-${testCode}`).emit("test-started", {
