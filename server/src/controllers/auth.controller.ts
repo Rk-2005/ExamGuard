@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET || "Ronak";
 
 export const signup = async (req: Request, res: any) => {
+  console.log(req.body)
   const { email, password, name, Role } = req.body;
 
   try {

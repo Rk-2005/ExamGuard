@@ -9,7 +9,7 @@ function LoginPage() {
   const navigate=useNavigate();
   const onSubmit = async(data:any) => {
      try {
-    const res = await axios.post("http://localhost:3000/api/auth/login", data); // no need to stringify
+    const res = await axios.post("https://examguard-server.onrender.com/api/auth/login", data); // no need to stringify
     console.log(res.data);
     localStorage.setItem("token",res.data.token);  
     const token=res.data.token; 

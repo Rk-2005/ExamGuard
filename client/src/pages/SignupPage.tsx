@@ -9,7 +9,7 @@ import { Form, useNavigate } from 'react-router-dom';
   const navigate=useNavigate();
   const onSubmit = async (data: any) => {
   try {
-    const res = await axios.post("http://localhost:3000/api/auth/signup", data); // no need to stringify
+    const res = await axios.post("https://examguard-server.onrender.com/api/auth/signup", data); // no need to stringify
     console.log(res.data.token);
     localStorage.setItem("token",res.data.token);
     const decode=jwtDecode(res.data.token);   

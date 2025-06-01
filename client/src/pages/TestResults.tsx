@@ -23,7 +23,7 @@ function TestResults() {
         
         // Fetch test results
         const resultsRes = await axios.get(
-          `http://localhost:3000/api/test/test-results/${testId}`,
+          `https://examguard-server.onrender.com/api/test/test-results/${testId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         

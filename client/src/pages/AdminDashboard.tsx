@@ -84,7 +84,7 @@ function AdminDashboard() {
   }, [navigate]);
 
   const initializeSocket = () => {
-    socketRef.current = io("http://localhost:3000", {
+    socketRef.current = io("https://examguard-server.onrender.com", {
       auth: {
         token: localStorage.getItem("token")
       }
@@ -126,7 +126,7 @@ function AdminDashboard() {
 
     socketRef.current.on("error", (error) => {
       console.error("Socket error:", error);
-      alert(`Error: ${error.message}`);
+      
     });
   };
 
@@ -234,7 +234,7 @@ function AdminDashboard() {
   try {
     // Create the test with questions
     const testResponse = await fetch(
-      "http://localhost:3000/api/test/create",
+      "https://examguard-server.onrender.com/api/test/create",
       {
         method: "POST",
         headers: {

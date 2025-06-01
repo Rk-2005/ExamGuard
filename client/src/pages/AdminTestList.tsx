@@ -15,7 +15,7 @@ const AdminTestList = () => {
     const fetchTests = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:3000/api/test/my-tests", {
+        const res = await axios.get("https://examguard-server.onrender.com/api/test/my-tests", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -36,7 +36,7 @@ const AdminTestList = () => {
     try {
       setDeletingId(testId);
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/api/test/${testId}`, {
+      await axios.delete(`https://examguard-server.onrender.com/api/test/${testId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
