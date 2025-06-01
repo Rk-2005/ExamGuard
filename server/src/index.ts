@@ -15,7 +15,9 @@ app.use(cors());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/test', testRoute);
-
+app.get("/",(req,res)=>{
+  res.send("server is running");
+})
 // Create HTTP server and initialize socket.io
 const server = http.createServer(app);
 const io = new Server(server, {
