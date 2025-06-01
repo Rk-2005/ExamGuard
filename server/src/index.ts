@@ -21,13 +21,14 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      "http://localhost:5173",              // for local development
-      "https://examguard.vercel.app"        // your production frontend
-    ], // or your frontend origin
-    methods: ['GET', 'POST'],
+      "http://localhost:5173",                     // local dev
+      "https://exam-guard-three.vercel.app"        // correct production domain
+    ],
+    methods: ["GET", "POST"],
     credentials: true
-  },
+  }
 });
+
 
 // Socket.IO handling
 io.on('connection', (socket) => {
