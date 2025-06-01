@@ -87,7 +87,8 @@ function AdminDashboard() {
     socketRef.current = io("https://examguard-server.onrender.com", {
       auth: {
         token: localStorage.getItem("token")
-      }
+      },
+      transports: ["websocket"],
     });
 
     socketRef.current.on("connect", () => {
