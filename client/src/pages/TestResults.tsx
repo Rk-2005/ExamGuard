@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FiArrowLeft, FiBarChart2, FiUser, FiMail, FiAward, FiClock, FiFileText } from 'react-icons/fi';
-import { ThreeDots } from 'react-loader-spinner';
 import { Tooltip } from 'react-tooltip';
 
 function TestResults() {
@@ -26,9 +25,6 @@ function TestResults() {
           `https://examguard-server.onrender.com/api/test/test-results/${testId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        
-        // Fetch test details (assuming this endpoint exists)
-       
         
         setData(resultsRes.data);
       } catch (error) {
@@ -76,6 +72,13 @@ function TestResults() {
     return (total / data.length).toFixed(1);
   };
 
+  // CSS Spinner component
+  const Spinner = () => (
+    <div className="flex justify-center items-center h-64">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
@@ -111,16 +114,7 @@ function TestResults() {
         </div>
 
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <ThreeDots 
-              height="80" 
-              width="80" 
-              radius="9"
-              color="#3b82f6" 
-              ariaLabel="three-dots-loading"
-              visible={true}
-            />
-          </div>
+          <Spinner />
         ) : error ? (
           <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
             <div className="flex">

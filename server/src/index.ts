@@ -20,8 +20,12 @@ app.use('/api/test', testRoute);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: '*', // or your frontend origin
+    origin: [
+      "http://localhost:5173",              // for local development
+      "https://examguard.vercel.app"        // your production frontend
+    ], // or your frontend origin
     methods: ['GET', 'POST'],
+    credentials: true
   },
 });
 
