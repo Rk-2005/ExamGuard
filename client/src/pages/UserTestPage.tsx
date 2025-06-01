@@ -84,7 +84,10 @@ useEffect(() => {
 
   // Initialize real socket connection
 const initializeSocket = () => {
-  const socket = io("https://examguard-server.onrender.com"); // use real backend socket
+  const socket = io("https://examguard-server.onrender.com",{
+    transports: ["websocket"], // ✅ Force WebSocket only
+    withCredentials: true  
+  }); // use real backend socket
   socketRef.current = socket;
 
   socket.on("connect", () => {

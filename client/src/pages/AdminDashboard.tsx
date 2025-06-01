@@ -85,6 +85,8 @@ function AdminDashboard() {
 
   const initializeSocket = () => {
     socketRef.current = io("https://examguard-server.onrender.com", {
+     transports: ["websocket"], // ✅ Force WebSocket only
+    withCredentials: true ,
       auth: {
         token: localStorage.getItem("token")
       }
