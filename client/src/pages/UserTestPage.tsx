@@ -4,6 +4,7 @@ import { Clock, AlertTriangle, CheckCircle, XCircle } from "lucide-react";
 import {jwtDecode} from "jwt-decode";
 
 import { io } from "socket.io-client";
+import LogoutButton from "./Logout";
 
 interface Question {
   id: number;
@@ -304,7 +305,7 @@ const initializeSocket = () => {
                 <div className={`w-2 h-2 rounded-full ${isSocketConnected ? 'bg-green-500' : 'bg-red-500'}`}></div>
                 <span className="text-sm text-gray-600">{getConnectionStatus()}</span>
               </div>
-              
+              <LogoutButton></LogoutButton>
               {/* Test Timer */}
               {testStatus === "in_progress" && (
                 <div className="flex items-center space-x-2 bg-blue-50 px-3 py-1 rounded-lg">

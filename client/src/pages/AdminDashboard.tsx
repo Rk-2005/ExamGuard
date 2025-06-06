@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { io, Socket } from "socket.io-client";
 import AdminTestList from "./AdminTestList";
+import LogoutButton from "./Logout";
 
 interface Student {
   id: number;
@@ -302,7 +303,7 @@ function AdminDashboard() {
 
 //   addQuestionsToTest();
 // }, [testId]);
-  
+
   const resetForm = () => {
     setQuestions([]);
     setNewQuestion({
@@ -370,6 +371,7 @@ function AdminDashboard() {
             >
               View Tests
             </button>
+                <LogoutButton></LogoutButton>
           </nav>
         </div>
       </header>
