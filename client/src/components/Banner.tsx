@@ -1,6 +1,8 @@
 import React from 'react';
 import exam from "../assets/Image2.png"
+import {  useNavigate } from 'react-router-dom';
 function Banner() {
+  const navigate=useNavigate();
   return (
     <section className="relative bg-gradient-to-br from-blue-100 via-white to-indigo-100 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
@@ -20,16 +22,41 @@ function Banner() {
             
             {/* Call-to-Action Buttons */}
             <div className="flex flex-wrap gap-4 pt-6">
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              <button onClick={()=>{
+                navigate("/login");
+              }} className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                 Get Started
               </button>
-              <button className="flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 hover:text-blue-700 transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Watch Demo
-              </button>
+             <a
+  href="https://drive.google.com/file/d/1MXoIr7PiZDAXNK41gBacLhkCtIbFX-55/view?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 hover:text-blue-700 transition-all duration-300">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    Watch Demo
+  </button>
+</a>
+
             </div>
           </div>
           
