@@ -129,7 +129,7 @@ function AdminDashboard() {
 
     socketRef.current.on("error", (error) => {
       console.error("Socket error:", error);
-      alert(`Error: ${error.message}`);
+     
     });
   };
 
