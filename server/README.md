@@ -57,11 +57,10 @@ Create a `.env` file based on `.env.example`:
 
 ```bash
 # Database Configuration
+# Connection pooling is configured via query parameters:
+# - connection_limit: maximum number of connections in the pool
+# - pool_timeout: timeout in seconds for acquiring a connection
 DATABASE_URL="postgresql://user:password@localhost:5432/examguard?connection_limit=10&pool_timeout=10"
-
-# Database Connection Pool Configuration
-DATABASE_CONNECTION_LIMIT=10
-DATABASE_CONNECTION_TIMEOUT=10
 
 # JWT Configuration (REQUIRED)
 JWT_SECRET=your-secure-jwt-secret-here
