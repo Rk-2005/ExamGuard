@@ -1,7 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "Ronak"; // fallback in case env is not set
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is not set");
+}
+const JWT_SECRET = process.env.JWT_SECRET;
 
 
 export const verify = async (req: Request, res: any, next: NextFunction) => {

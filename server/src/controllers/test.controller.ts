@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "../src/generated/prisma";
 import { error } from "console";
-
-const prisma = new PrismaClient();
+import prisma from "../lib/prisma";
 
 interface AuthRequest extends Request {
   id: number;
