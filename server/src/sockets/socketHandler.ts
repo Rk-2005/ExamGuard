@@ -1,7 +1,5 @@
 import { Socket, Server } from "socket.io";
-import { PrismaClient } from "../src/generated/prisma";
-
-const prisma = new PrismaClient();
+import prisma from "../lib/prisma";
 
 export const socketHandler = (socket: Socket, io: Server) => {
   console.log("User connected:", socket.id);
@@ -248,13 +246,15 @@ export const socketHandler = (socket: Socket, io: Server) => {
         orderBy: { startedAt: "desc" },
       });
 
+      if (!updatedAttempt) return;
+
       // ✅ NEW: Send updated student data to admin with current violation count
       socket.to(`test-${testCode}`).emit("student-updated", {
         id: userId,
         name: updatedAttempt.user.name,
         email: updatedAttempt.user.email,
         status: "online",
-        tabSwitchCount: updatedAttempt?.violations.length, // Updated count
+        tabSwitchCount: updatedAttempt.violations.length, // Updated count
         socketId: socket.id
       });
 
@@ -262,10 +262,10 @@ export const socketHandler = (socket: Socket, io: Server) => {
       socket.to(`test-${testCode}`).emit("student-violation", {
         userId,
         violation: reason,
-        newCount: updatedAttempt?.violations.length
+        newCount: updatedAttempt.violations.length
       });
 
-      console.log(`Violation recorded for user ${userId}: ${reason}. Total violations: ${updatedAttempt?.violations.length}`);
+      console.log(`Violation recorded for user ${userId}: ${reason}. Total violations: ${updatedAttempt.violations.length}`);
 
     } catch (error) {
       console.error("Error recording violation:", error);

@@ -1,12 +1,20 @@
 import express from 'express';
 import cors from 'cors';
 import http from 'http';
+import helmet from 'helmet';
+import compression from 'compression';
 import { Server } from 'socket.io';
 import authRoutes from './routes/auth.routes';
 import testRoute from './routes/test.routes';
 import { socketHandler } from './sockets/socketHandler'; // if needed
 
 const app = express();
+
+// Security middleware
+app.use(helmet());
+
+// Response compression
+app.use(compression());
 
 // Middlewares
 app.use(express.json());
@@ -18,6 +26,18 @@ app.use('/api/test', testRoute);
 app.get("/",(req,res)=>{
   res.send("server is running");
 })
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  const healthCheck = {
+    status: 'ok',
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+    timestamp: new Date().toISOString()
+  };
+  res.status(200).json(healthCheck);
+});
+
 // Create HTTP server and initialize socket.io
 const server = http.createServer(app);
 const io = new Server(server, {

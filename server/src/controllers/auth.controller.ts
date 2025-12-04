@@ -1,14 +1,24 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "../src/generated/prisma";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { signupSchema, loginSchema } from "../validators/auth.validator";
+import prisma from "../lib/prisma";
 
-const prisma = new PrismaClient();
-const JWT_SECRET = process.env.JWT_SECRET || "Ronak";
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is not set");
+}
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export const signup = async (req: Request, res: any) => {
   console.log(req.body)
-  const { email, password, name, Role } = req.body;
+  
+  // Validate input
+  const validation = signupSchema.safeParse(req.body);
+  if (!validation.success) {
+    return res.status(400).json({ error: validation.error.issues[0].message });
+  }
+
+  const { email, password, name, Role } = validation.data;
 
   try {
     const existingUser = await prisma.user.findUnique({
@@ -40,7 +50,13 @@ export const signup = async (req: Request, res: any) => {
 };
 
 export const login = async (req: Request, res: any) => {
-  const { email, password } = req.body;
+  // Validate input
+  const validation = loginSchema.safeParse(req.body);
+  if (!validation.success) {
+    return res.status(400).json({ error: validation.error.issues[0].message });
+  }
+
+  const { email, password } = validation.data;
 
   try {
     const user = await prisma.user.findUnique({
